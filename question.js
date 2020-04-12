@@ -54,12 +54,12 @@ var questionBank = [
     },
     {
         id:6,
-        question : "Inside which HTML element do we put the JavaScript?",
-        A  : "<script>",
-        B  : "<src>",
-        C  : "<h1>",
-        D  : "<div>",
-        answer : "<script>",
+        question : "Inside which HTML element do we put the CSS?",
+        A  : "stylesheet",
+        B  : "src",
+        C  : "h1",
+        D  : "div",
+        answer : "stylesheet",
         parentId :2,
         parentAnswerOption: "A"
     },
@@ -230,14 +230,21 @@ var questionBank = [
     }
 ];
 
+function diff_minutes(dt2, dt1) 
+ {
+
+  var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+  //diff /= 60;
+  return Math.abs(Math.round(diff));
+  
+ }
 var choice0,choice1,choice2,choice3;
 var k = 0;
-var start = 0;
-var end = 0;
-
 var res = "";
+var marks = 0;
 
-
+var startOfTest = new Date();
+var start = startOfTest.getHours() + ":" + startOfTest.getMinutes() + ":" + startOfTest.getSeconds();
 document.getElementById("question").textContent = questionBank[k].question;
 document.getElementById("A").textContent = choice0 = questionBank[k].A;
 document.getElementById("B").textContent = choice1 = questionBank[k].B;
@@ -246,7 +253,13 @@ document.getElementById("D").textContent = choice3 = questionBank[k].D;
 res = res + "Question:- " +questionBank[k].question + "<br>" + "Answer:- " + questionBank[k].answer +  "<br>";
 
 function finalResult(){
-    document.getElementById("quiz").innerHTML = res+ "";
+    var endOfTest = new Date();
+    var end = endOfTest.getHours() + ":" + endOfTest.getMinutes() + ":" + endOfTest.getSeconds();
+    var totalTime = diff_minutes(endOfTest,startOfTest);
+    var finalRes =  "Start Time:- " + startOfTest + "<br>" + "End Time:- " + endOfTest + "<br>" + "Total Time:- " + totalTime + "<br>" + res;
+    console.log(diff_minutes(endOfTest,startOfTest));
+    console.log(end);
+    document.getElementById("quiz").innerHTML = finalRes + "";
 }
 
 function display(){
@@ -269,7 +282,7 @@ function display(){
     else{
         console.log(choice3);
     }
-          
+
     k = k+1;
     
     for(let i = 0;i< questionBank.length ;i++){
