@@ -250,13 +250,13 @@ document.getElementById("A").textContent = choice0 = questionBank[k].A;
 document.getElementById("B").textContent = choice1 = questionBank[k].B;
 document.getElementById("C").textContent = choice2 = questionBank[k].C;
 document.getElementById("D").textContent = choice3 = questionBank[k].D;
-res = res + "Question:- " +questionBank[k].question + "<br>" + "Answer:- " + questionBank[k].answer +  "<br>";
+res = res + "Question:- " +questionBank[k].question + "<br>" + "Answer:- " + questionBank[k].answer +  "<br><br>";
 
 function finalResult(){
     var endOfTest = new Date();
     var end = endOfTest.getHours() + ":" + endOfTest.getMinutes() + ":" + endOfTest.getSeconds();
     var totalTime = diff_minutes(endOfTest,startOfTest);
-    var finalRes =  "Start Time:- " + startOfTest + "<br>" + "End Time:- " + endOfTest + "<br>" + "Total Time:- " + totalTime + "<br>" + res;
+    var finalRes =  "Start Time:- " + startOfTest + "<br>" + "End Time:- " + endOfTest + "<br>" + "Total Time:- " + totalTime + " seconds "+ "<br> <br>" + res;
     console.log(diff_minutes(endOfTest,startOfTest));
     console.log(end);
     document.getElementById("quiz").innerHTML = finalRes + "";
@@ -292,7 +292,7 @@ function display(){
             document.getElementById("B").textContent = choice1 = questionBank[i].B;
             document.getElementById("C").textContent = choice2 = questionBank[i].C;
             document.getElementById("D").textContent = choice3 = questionBank[i].D;
-            res = res + "Question:- " +questionBank[i].question + "<br>" + "Answer:- " + questionBank[i].answer +  "<br>";
+            res = res + "Question:- " +questionBank[i].question + "<br>" + "Answer:- " + questionBank[i].answer +  "<br><br>";
             console.log(res);
             flag = 1;
 
